@@ -464,7 +464,7 @@ if (starBtn) {
 
     // Update the button with the new count
     if (markedOption) {
-      markedOption.textContent = `⭐Ripasso＋ (${markedCards.length})`;
+      markedOption.textContent = `⭐Ripasso (${markedCards.length})`;
       markedOption.disabled = markedCards.length === 0; // Unlock option if count > 0
     }
 
