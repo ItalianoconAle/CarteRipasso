@@ -35,14 +35,14 @@
       <section class="top-controls" aria-label="Controlli principali">
           <section class="deck-picker" aria-label="Selezione set di carte">
           <select id="deckSelect" class="deck-select">
-            <option value="marked" id="markedOption" disabled>⭐Ripasso＋(0)</option>
+            <option value="marked" id="markedOption" disabled>⭐Ripasso＋ (0)</option>
             <option value="unit1">Unità 1</option>
             <option value="unit2">Unità 2</option>
             <option value="verbs">Verbi</option>
           </select>
         </section>
         <section class="mode-picker" aria-label="Modalità di studio">
-        <button class="mode-chip active" data-mode="flip" type="button">Gira Carta</button>
+        <button class="mode-chip active" data-mode="flip" type="button">Gira carta</button>
         <button class="mode-chip" data-mode="quiz" type="button">Quiz</button>
         </section>
       </section>
@@ -52,7 +52,7 @@
           <div class="card-header">
             <button id="shuffleBtn" class="ghost-btn" type="button">Mischia</button>
             <span id="progressLabel" class="badge">Carta 1 / 40</span>
-            <button id="starBtn" type="button" class="ghost-btn" style="font-size: 1rem; cursor: pointer;">☆ Ripasso+</button>
+            <button id="starBtn" type="button" class="ghost-btn" style="font-size: 1rem; cursor: pointer;">☆ Ripasso＋</button>
           </div>
 
           <button id="cardBtn" class="flashcard" type="button" aria-label="Gira la carta">
@@ -71,8 +71,8 @@
           </section>
 
           <div class="controls">
-            <button id="prevBtn" class="secondary-btn" type="button">Precedente</button>
-            <button id="nextBtn" class="primary-btn" type="button">Successiva</button>
+            <button id="prevBtn" class="secondary-btn" type="button"><span class="nav-arrow">⬅</span> Precedente</button>
+            <button id="nextBtn" class="primary-btn" type="button">Successiva <span class="nav-arrow">➡</span></button>
           </div>
         </article>
 
@@ -80,7 +80,7 @@
         <aside class="info-panel">
           <h2>Istruzioni</h2>
           <ul>
-            <li>Tocca la carta per girarla.</li>
+          <li>Tocca la carta per girarla.</li>
             <li>Scorri a sinistra o a destra per passare alle carte.</li>
             <li>Usa i pulsanti grandi per una navigazione semplice su schermo piccolo.</li>
             <li>In modalità Quiz, le carte avanzano automaticamente dopo ogni risposta corretta.</li>
@@ -94,7 +94,6 @@
             <span class="mini-label">Modalità</span>
             <strong>Gira e ripassa</strong><br>
             <strong>Quiz a scelta</strong>
-          </div>
         </aside>
       </section>
     </main>
