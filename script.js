@@ -156,7 +156,7 @@ function renderCard() {
       starBtn.textContent = '★ Salvata';
       starBtn.style.color = '#ffcc00'; // Turn it gold
     } else {
-      starBtn.textContent = '☆ Ripasso＋';
+      starBtn.textContent = '☆ Ripasso';
       starBtn.style.color = ''; // Reset color
     }
   }
