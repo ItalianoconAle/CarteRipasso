@@ -1,0 +1,464 @@
+:root {
+  color-scheme: light;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #f5fff8 0%, #edf6ff 100%);
+  color: #1b1c1b;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom) 0;
+}
+
+button {
+  font: inherit;
+  touch-action: manipulation;
+}
+
+.app-shell {
+  width: min(1100px, calc(100vw - 1rem));
+  padding: 1rem 0 2rem;
+}
+
+.hero {
+  margin-bottom: 0rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  transition: max-height 180ms ease, opacity 180ms ease, transform 180ms ease;
+  margin-top: 0 !important;
+  padding-top: 5px !important;
+}
+
+.hero-collapsed {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-6px);
+  pointer-events: none;
+}
+.hero-collapsed .eyebrow,
+.hero-collapsed .subtitle,
+.hero-collapsed .hero-image, 
+.hero-collapsed img { 
+  display: none !important;
+}
+.hero-left { 
+    width: auto;
+    text-align: left;
+}
+.hero-right {  
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+  width: auto;
+  text-align: right;
+}
+.hero-image { max-width: 250px; }
+.hero-row {
+   clear: both; 
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.78rem;
+  margin-left: 1em;
+  color: #2b2c2b;
+}
+
+h1 {
+  margin: 0.2rem 0 0.4rem;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  padding-left: 0.5em;
+}
+h2 {
+  padding-left: 0.5em;
+  text-transform: uppercase;
+}
+
+.subtitle { 
+  color: #68A183;
+  font-size: 0.8rem; 
+  width: 100%; 
+  padding-left: 1em;
+}
+
+.header-toggle {
+  margin: 0 0 2rem 1em;
+  border: 1px solid #dcf3e6;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #afd0be;
+  padding: 0.45rem 0.7rem;
+  font: inherit;
+  font-weight: 500;
+  font-size: 0.8rem;
+  font-style: italic;
+  cursor: pointer;
+}
+#toggleHeaderBtn {
+  display: block;
+  display: block;
+  margin: 5px 0 5px auto;
+}
+
+.top-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin: 0.25rem 0 1rem 1em;
+  flex-wrap: wrap;
+}
+
+.deck-picker,
+.mode-picker {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.deck-label {
+  color: #2f5d45;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.deck-select,
+.mode-chip, 
+.specialiBtn {
+  border: 1px solid #cde3d7;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #2f5d45;
+  padding: 0.55rem 0.8rem;
+  font: inherit;
+  font-weight: 600;
+  min-height: 2.75rem;
+  box-shadow: 0 6px 14px rgba(11, 23, 16, 0.06);
+}
+
+.deck-select {
+  min-width: 140px;
+}
+
+.mode-chip.active {
+  background: #2f5d45;
+  color: #ffffff;
+}
+
+.mode-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+#markedOption.has-cards {
+  background: #ffffff;
+  color: #ffcc00; /* Gold text */
+  border-color: #ffcc00;
+  font-weight: 700;
+}
+
+#markedOption.viewing-speciali {
+  background: #2f5d45 !important;
+  color: #ffffff !important;
+  border-color: #2f5d45 !important;
+}
+
+.hidden {
+  display: none;
+}
+
+.quiz-panel {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 20px;
+  background: #eef7f1;
+  border: 1px solid #cfe5d9;
+}
+
+.quiz-label {
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #2f5d45;
+}
+
+.quiz-question {
+  margin: 0.35rem 0 0.8rem;
+  font-size: 1.4rem;
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.quiz-option {
+  width: 100%;
+  text-align: left;
+  border-radius: 14px;
+  border: 1px solid #cfe5d9;
+  background: #ffffff;
+  color: #17311f;
+  padding: 0.75rem 0.9rem;
+}
+
+.quiz-option.correct {
+  background: #dff6e8;
+  border-color: #59b178;
+}
+
+.quiz-option.wrong {
+  background: #ffe5f5;
+  border-color: #d46ab1;
+}
+
+.quiz-feedback {
+  min-height: 1.2em;
+  margin: 0.6rem 0 0;
+  color: #26553a;
+  font-weight: 600;
+}
+
+.dashboard {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1.2fr 0.8fr;
+}
+
+.card-panel,
+.info-panel {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(104, 161, 131, 0.18);
+  border-radius: 24px;
+  box-shadow: 0 18px 35px rgba(11, 23, 16, 0.12);
+  padding: 1rem;
+  backdrop-filter: blur(12px);
+}
+
+.card-header,
+.controls { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.9rem 1rem;
+  margin-left: 1.5em;
+  border-radius: 999px;
+  border: 0px solid #68A183;
+  background: #ffffff;
+  color:#68A183;
+  font-size: 0.95rem;
+}
+
+.ghost-btn,
+.secondary-btn,
+.primary-btn {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.9rem 1rem;
+  min-height: 48px;
+  cursor: pointer;
+  transition: transform 120ms ease, opacity 120ms ease;
+  font-weight: 600;
+}
+
+.ghost-btn:hover,
+.secondary-btn:hover,
+.primary-btn:hover,
+.flashcard:hover { transform: translateY(-1px); }
+
+.ghost-btn { background: #68A183; color: #ffffff; }
+.secondary-btn { background: #68A183; color: #ffffff; border-color: none; }
+.primary-btn { background: #68A183; color: #ffffff; }
+
+.mute-btn {
+  border: 1px solid #68A183;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #2f5d45;
+  padding: 0.55rem 0.8rem;
+  font-weight: 500;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin:0;
+}
+.mute {
+  justify-content: center;
+  align-items: center;
+}
+
+/* Keep it totally invisible by default */
+.end-screen-shrouded {
+  display: none !important; 
+}
+
+/* When the script activates it, make it layout inline centered */
+.end-screen-revealed {
+ position: absolute !important;
+  top: 70%; /* Places the button nicely below your text line */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers it perfectly */
+  z-index: 10; /* Forces it to sit on top of the card surface */
+  display: flex !important;
+  width: auto;
+  margin: 0;
+}
+
+.action-btn {
+  border: 1px solid #68A183;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #2f5d45;
+  padding: 0.55rem 0.8rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin:0;
+}
+
+.restart-btn {
+  border: 1px solid #68A183;
+  border-radius: 999px;
+  background: #ffffff;
+  opacity: 0.9;
+  color: #2f5d45;
+  padding: 0.55rem 0.8rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  margin:0;
+  transition: transform 0.1s ease;
+}
+
+.restart-btn:active {
+  transform: scale(0.95);
+}
+.completion-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-bottom: 40px; /* Gently offsets the space occupied by the button below */
+  box-sizing: border-box;
+}
+
+.completion-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.flashcard {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  min-height: 300px;
+  min-height: clamp(300px, 45vh, 350px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 0rem, 1rem, 1rem, 1rem;
+  border: none;
+  background: #3a7254;
+  color: #eff6ff;
+  border-radius: 28px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 16px 30px rgba(15, 23, 42, 0.35);
+  cursor: pointer;
+  perspective: 1200px;
+  position: relative;
+
+}
+
+.flashcard.is-flipped { transform: rotateY(180deg); }
+
+.flashcard-tag {
+  font-size: 0.9rem;
+  color: #68A183;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  margin-bottom:   2rem;
+}
+
+.card-text,
+.card-back { font-size: clamp(1.25rem, 10vmin, 8rem); line-height: 1.25; }
+
+.card-back { display: none;
+font-weight: 500;
+font-size: clamp(1.25rem, 8vmin, 5rem);
+}
+
+.flashcard.flipped .card-text { display: none; }
+.flashcard.flipped .card-back { display: inline; }
+
+.info-panel h2 { margin-top: 0.2rem; font-size: 1.15rem; }
+.info-panel ul { padding-left: 1rem; color: #353635; line-height: 1.5; }
+.mini-stat { margin-top: 1rem; padding: 0.85rem; border-radius: 18px; background: ffffff; }
+.mini-label { display: block; color: #68A183; font-size: 0.92rem; margin-bottom: 0.15rem; font-weight: 500; }
+
+.instructions-toggle {
+  display: none;
+  margin: 0 0 0.75rem 0;
+}
+
+@media (max-width: 980px) {
+  .instructions-toggle { display: inline-flex; }
+  .info-panel.collapsed { display: none; }
+}
+
+@media (min-width: 981px) {
+  .instructions-toggle { display: none; }
+}
+
+@media (max-width: 920px) {
+  .dashboard { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .app-shell { width: calc(100vw - 0.75rem); padding-top: 0.5rem; }
+  .hero { margin-bottom: 0rem;}
+  .quiz-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .card-header, .controls { gap: 0.5rem; }
+  .controls { display: grid; grid-template-columns: 1fr 1fr; }
+  .flashcard { min-height: 320px; padding: 1rem 0.9rem; border-radius: 22px; justify-content: center; max-width: 100%; }
+  .card-text {
+    font-size: clamp(1.25rem, 10vmin, 5rem);
+    line-height: clamp(1.25rem, 10vmin, 5rem);
+    font-weight: 800;
+  }
+  .hero-right {
+    margin-top: 0.5rem;
+  }
+  .hero-image { max-width: 200px; }
+  .card-back { font-size: clamp(1.25rem, 9vmin, 5rem); line-height: 4rem; font-weight: 500; }
+  .flashcard-tag { font-size: 0.85rem; letter-spacing: 0.18em; }
+  .card-header { align-items: flex-start; }
+}
+body:has(.hero-collapsed) {
+  place-items: start center !important;
+}
+body:has(.hero-collapsed) .app-shell {
+  padding-top: 1rem !important;
+}

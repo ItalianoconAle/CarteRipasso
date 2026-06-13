@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#68A183" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Flashcards" />
+    <link rel="manifest" href="manifest.json" />
+    <title>Carte Didattiche - Italiano con Alessandra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header id="hero" class="hero">
+        <div class="hero-left">
+        <p class="eyebrow">Carte Didattiche</p>
+        <p class="subtitle">Ripassare e memorizzare il vocabolario e tracciare i tuoi progressi.</p>
+        </div>
+        <div class="hero-right">
+         <img src="https://www.italianoconalessandra.com/uploads/5/0/9/4/50940055/logo1-01.png" alt="Logo di Italiano con Alessandra" class="hero-image" />
+        </div>
+      </header>
+      
+
+      <button id="toggleHeaderBtn" class="header-toggle" type="button" aria-label="Mostra o nascondi intestazione">Nascondi intestazione</button>
+
+      <section class="top-controls" aria-label="Controlli principali">
+          <section class="deck-picker" aria-label="Selezione set di carte">
+          <select id="deckSelect" class="deck-select">
+            <option value="marked" id="markedOption" disabled>⭐Ripasso Più(0)</option>
+            <option value="unit1">Unità 1</option>
+            <option value="unit2">Unità 2</option>
+            <option value="verbs">Verbi</option>
+          </select>
+        </section>
+        <section class="mode-picker" aria-label="Modalità di studio">
+        <button class="mode-chip active" data-mode="flip" type="button">Gira carta</button>
+        <button class="mode-chip" data-mode="quiz" type="button">Quiz a scelta</button>
+        </section>
+      </section>
+
+      <section class="dashboard">
+        <article class="card-panel">
+          <div class="card-header">
+            <button id="shuffleBtn" class="ghost-btn" type="button">Mischia</button>
+            <span id="progressLabel" class="badge">Carta 1 / 40</span>
+            <button id="starBtn" type="button" class="ghost-btn" style="font-size: 1rem; cursor: pointer;">☆ Ripasso Più</button>
+          </div>
+
+          <button id="cardBtn" class="flashcard" type="button" aria-label="Gira la carta">
+            <span class="flashcard-tag">Tocca per girare</span>
+            <strong id="cardFront" class="card-text">l'anno</strong>
+            <span id="cardBack" class="card-back">year</span>
+          </button>
+          <div id="deckEndContainer" class="end-screen-shrouded">
+      <button id="restartBtn" class="restart-btn" type="button"> Ricomincia da capo</button>
+        </div>
+          <section id="quizPanel" class="quiz-panel hidden" aria-live="polite">
+            <p class="quiz-label">Scegli la traduzione giusta</p>
+            <div id="quizOptions" class="quiz-options"></div>
+            <p id="quizFeedback" class="quiz-feedback"></p>
+            <div class="mute"><button id="muteBtn" class="mute-btn" type="button" aria-label="Disattiva audio">🔊 Audio Attivo</button></div>
+          </section>
+
+          <div class="controls">
+            <button id="prevBtn" class="secondary-btn" type="button">Precedente</button>
+            <button id="nextBtn" class="primary-btn" type="button">Successiva</button>
+          </div>
+        </article>
+
+        <button id="toggleInstructionsBtn" class="header-toggle instructions-toggle" type="button" aria-label="Mostra o nascondi istruzioni">Nascondi istruzioni</button>
+        <aside class="info-panel">
+          <h2>Istruzioni</h2>
+          <ul>
+            <li>Tocca la carta per girarla.</li>
+            <li>Scorri a sinistra o a destra per passare alle carte.</li>
+            <li>Usa i pulsanti grandi per una navigazione semplice su schermo piccolo.</li>
+          </ul>
+
+          <div class="mini-stat">
+            <span class="mini-label">Quantità</span>
+            <strong id="deckCount">40 carte</strong>
+          </div>
+          <div class="mini-stat">
+            <span class="mini-label">Modalità</span>
+            <strong>Gira e ripassa</strong>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
