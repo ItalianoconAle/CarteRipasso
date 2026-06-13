@@ -110,8 +110,7 @@ h2 {
 }
 #toggleHeaderBtn {
   display: block;
-  display: block;
-  margin: 5px 0 5px auto;
+  margin: 5px 0 5px 0;
 }
 
 .top-controls {
@@ -289,6 +288,17 @@ h2 {
 .ghost-btn { background: #68A183; color: #ffffff; }
 .secondary-btn { background: #68A183; color: #ffffff; border-color: none; }
 .primary-btn { background: #68A183; color: #ffffff; }
+
+.secondary-btn
+{ padding-right: 3rem;}
+.primary-btn
+{ padding-left: 3rem;}
+
+.nav-arrow {
+  font-size: 1.25rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
 
 .mute-btn {
   border: 1px solid #68A183;
