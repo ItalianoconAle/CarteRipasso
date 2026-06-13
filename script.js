@@ -161,7 +161,7 @@ function renderCard() {
     }
   }
   // ---------------------------------
-  progressLabel.textContent = `Carta ${currentIndex + 1} / ${deck.length}`;
+  progressLabel.textContent = `${currentIndex + 1} / ${deck.length}`;
   deckCount.textContent = `${deck.length} carte`;
   cardBtn.classList.remove('flipped');
   isFlipped = false;
