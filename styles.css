@@ -109,6 +109,19 @@ h2 {
   font-style: italic;
   cursor: pointer;
 }
+.instructions-toggle {
+  margin: 0 0 2rem 1em;
+  border: 1px solid #cde3d7;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #478363;
+  padding: 0.45rem 0.7rem;
+  font: inherit;
+  font-weight: 500;
+  font-size: 1rem;
+  font-style: none;
+  cursor: pointer;
+}
 #toggleHeaderBtn {
   display: block;
   margin: 5px 0 5px 0;
@@ -459,6 +472,7 @@ font-size: clamp(1.25rem, 8vmin, 5rem);
   .hero-right {
     margin-top: 0.5rem;
   }
+  aside.info-panel { margin-top: -1.6rem !important; }
   .hero-image { max-width: 200px; }
   .card-back { font-size: clamp(1.25rem, 9vmin, 5rem); line-height: 4rem; font-weight: 500; }
   .flashcard-tag { font-size: 0.85rem; letter-spacing: 0.18em; }
@@ -468,5 +482,5 @@ body:has(.hero-collapsed) {
   place-items: start center !important;
 }
 body:has(.hero-collapsed) .app-shell {
-  padding-top: 1rem !important;
+  padding-top: 0.5rem !important;
 }
