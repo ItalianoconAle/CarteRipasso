@@ -35,25 +35,59 @@ const decks = {
     { question: 'il televisore', answer: 'television (set)' },
     { question: 'la televisione', answer: 'television (programming)' },
     { question: 'il giornale', answer: 'newspaper' },
-    { question: 'il telefono', answer: 'phone' },
+    { question: 'come stai?', answer: 'how are you? (informal)' },
     { question: 'l\'occhio', answer: 'eye' },
-    { question: 'la pianta', answer: 'plant' },
+    { question: 'sto bene', answer: 'I’m well' },
     { question: 'lo stivalo', answer: 'boot' },
     { question: 'il sole', answer: 'sun' },
   ],
   unit2: [
-    { question: 'buongiorno', answer: 'good morning' },
-    { question: 'buonasera', answer: 'good evening' },
-    { question: 'ciao', answer: 'hi / bye' },
-    { question: 'grazie', answer: 'thank you' },
-    { question: 'prego', answer: 'you’re welcome' },
-    { question: 'per favore', answer: 'please' },
-    { question: 'come stai?', answer: 'how are you?' },
-    { question: 'sto bene', answer: 'I’m well' },
-    { question: 'che cosa?', answer: 'what?' },
-    { question: 'dove?', answer: 'where?' },
+    { question: 'scusa', answer: 'excuse me / sorry (informal)' },
+    { question: 'scusi', answer: 'excuse me / sorry (formal)' },
+    { question: 'il commesso', answer: 'shop assistant; clerk' },
+    { question: 'la vetrina', answer: 'shop window' },
+    { question: 'la gonna', answer: 'skirt' },
+    { question: 'i pantaloni', answer: 'trousers / pants' },
+    { question: 'le scarpe', answer: 'shoes' },
+    { question: 'la camicia', answer: 'shirt' },
+    { question: 'la maglietta', answer: 't-shirt' },
+    { question: 'il vestito', answer: 'dress' },
+    { question: 'il tacco', answer: 'heel' },
+    { question: 'la mela', answer: 'apple' },
+    { question: 'la pera', answer: 'pear' },
+    { question: 'la fragola', answer: 'strawberry' },
+    { question: 'paio', answer: 'pair' },
+    { question: 'il negozio', answer: 'shop' },
+    { question: 'l\'abbigliamento', answer: 'clothing' },
+    { question: 'il saldo', answer: 'sale' },
+    { question: 'al momento', answer: 'at the moment' },
+    { question: 'grazie a Lei', answer: 'thank you (formal)' },
+    { question: 'e', answer: 'and' },
+    { question: 'di', answer: 'of/about' },
+    { question: 'per', answer: 'for' },
+    { question: 'più', answer: 'more' },
+    { question: 'altro', answer: 'other/another' },
+    { question: 'questo', answer: 'this' },
+    { question: 'quello', answer: 'that' },
+    { question: 'qui/qua', answer: 'here' },
+    { question: 'lì/là', answer: 'there' },
+    { question: 'quanto', answer: 'how much' },
+    { question: 'in saldo', answer: 'on sale' },
+    { question: 'ecco', answer: 'here/here you go' },
+    { question: 'allora', answer: 'then/in that case' },
+    { question: 'siccome', answer: 'since/because' },
+    { question: 'comunque', answer: 'anyway' },
+    { question: 'la macchina', answer: 'car' },
+    { question: 'l\'ombrello', answer: 'umbrella' },
+    { question: 'sporco', answer: 'dirty' },
+    { question: 'sconvolto', answer: 'shocked/upset' },
+    { question: 'seccante', answer: 'annoying' },
+    { question: 'vorrei', answer: 'I would like' },
+    { question: 'costa', answer: 'it costs' },
+    { question: 'costano', answer: 'they cost' },
   ],
   verbs: [
+
     { question: 'essere', answer: 'to be' },
     { question: 'avere', answer: 'to have' },
     { question: 'fare', answer: 'to do / to make' },
@@ -129,9 +163,21 @@ function shuffle(array) {
 }
 
 function buildQuizOptions(deck, correctAnswer) {
-  const distractors = deck
+  // 1. Grab wrong answers from the active deck
+  let distractors = deck
     .map((item) => item.answer)
     .filter((answer) => answer !== correctAnswer);
+
+  // --- THE SAFETY CHECK ---
+  // If the active deck is too small (like a Ripasso deck with < 4 items),
+  // pull extra dummy answers from Unit 1 so the loop can finish safely.
+  if (deck.length < 4) {
+    const backupDistractors = decks.unit1
+      .map((item) => item.answer)
+      .filter((answer) => answer !== correctAnswer);
+    
+    distractors = [...distractors, ...backupDistractors];
+  }
 
   const options = new Set([correctAnswer]);
   while (options.size < 4) {
@@ -464,7 +510,7 @@ if (starBtn) {
 
     // Update the button with the new count
     if (markedOption) {
-      markedOption.textContent = `⭐Ripasso (${markedCards.length})`;
+      markedOption.textContent = `⭐Ripasso(${markedCards.length})`;
       markedOption.disabled = markedCards.length === 0; // Unlock option if count > 0
     }
 
