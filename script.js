@@ -95,9 +95,9 @@ const decks = {
     { question: 'la merce', answer: 'goods' },
     { question: 'le caffettiera', answer: 'coffee maker' },
     { question: 'la moka', answer: 'moka pot' },
-    { question: 'il bicchiere', answer: 'glass (drinking)' },
+    { question: 'il bicchiere', answer: 'glass' },
     { question: 'la tazza', answer: 'mug' },
-    { question: 'la tazzina', answer: 'small cup; espresso cup' },
+    { question: 'la tazzina', answer: 'small cup' },
     { question: 'la tovaglia', answer: 'tablecloth' },
     { question: 'la verdura', answer: 'vegetable' },
     { question: 'la frutta', answer: 'fruit' },
@@ -668,7 +668,9 @@ function syncMobileInstructionVisibility() {
   setInstructionsVisible(!isMobile);
 }
 
-window.addEventListener('resize', syncMobileInstructionVisibility);
+// Run once on page load to set the initial state based on device size
+syncMobileInstructionVisibility();
+
 modeButtons.forEach((button) => {
   button.addEventListener('click', () => switchMode(button.dataset.mode));
 });
