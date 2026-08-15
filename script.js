@@ -655,29 +655,34 @@ function shuffle(array) {
   }
   return copy;
 }
-
-function buildQuizOptions(deck, correctAnswer) {
-  // 1. Grab wrong answers from the active deck
+  function buildQuizOptions(deck, correctAnswer) {
+  // 1. Collect potential wrong answers from the active deck
   let distractors = deck
     .map((item) => item.answer)
-    .filter((answer) => answer !== correctAnswer);
+    .filter((answer) => answer && answer !== correctAnswer);
 
   // --- THE SAFETY CHECK ---
-  // If the active deck is too small (like a Ripasso deck with < 4 items),
-  // pull extra dummy answers from Unit 1 so the loop can finish safely.
-  if (deck.length < 4) {
-    const backupDistractors = decks.unit1
+//If the active deck doesn't have at least 3 UNIQUE wrong answers,
+  // pool distractor choices from ALL available decks as a fallback
+  const uniqueDistractors = new Set(distractors);
+  if (uniqueDistractors.size < 3) {
+    const allCards = Object.values(decks).flat();
+    const backupDistractors = allCards
       .map((item) => item.answer)
-      .filter((answer) => answer !== correctAnswer);
-    
+      .filter((answer) => answer && answer !== correctAnswer);
+
     distractors = [...distractors, ...backupDistractors];
   }
 
-  const options = new Set([correctAnswer]);
-  while (options.size < 4) {
+const options = new Set([correctAnswer]);
+  let maxAttempts = 100; // Safeguard against infinite loops
+
+  while (options.size < 4 && distractors.length > 0 && maxAttempts > 0) {
+    maxAttempts--;
     const randomAnswer = distractors[Math.floor(Math.random() * distractors.length)];
-    if (randomAnswer) options.add(randomAnswer);
-    if (options.size >= 4) break;
+    if (randomAnswer) {
+      options.add(randomAnswer);
+    }
   }
 
   return shuffle([...options]);
