@@ -1,7 +1,7 @@
 {
   "name": "Carte Didattiche - Italiano con Alessandra",
   "short_name": "Flashcards",
-  "description": "App per ripassare il vocabolario italiano con carte didattiche.",
+  "description": "App per ripassare il lessico con carte didattiche.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f5fff8",
@@ -10,13 +10,13 @@
   "scope": "/",
   "icons": [
     {
-      "src": "https://www.italianoconalessandra.com/uploads/5/0/9/4/50940055/logo1-01.png",
+      "src": "images/app_ico.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://www.italianoconalessandra.com/uploads/5/0/9/4/50940055/logo1-01.png",
+      "src": "images/app.splash.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable any"
