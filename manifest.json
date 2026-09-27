@@ -2,7 +2,7 @@
   "name": "Carte Didattiche - Italiano con Alessandra",
   "short_name": "Italiano con Ale",
   "description": "App per ripassare il lessico con carte didattiche.",
-  "start_url": "/",
+  "start_url": "/CarteDidattiche",
   "display": "standalone",
   "background_color": "#f5fff8",
   "theme_color": "#68A183",
