@@ -871,7 +871,7 @@ function showEndScreen(shouldShow) {
     // Hide standard layout panels cleanly
     cardBtn?.classList.add('hidden');
     quizPanel?.classList.add('hidden');
-    
+    if (speakerBtn) speakerBtn.style.display = 'none';
     // Set the announcement text
    cardFront.innerHTML = `<div class="completion-wrap"><span class="completion-text">Hai completato il mazzo!</span></div>`;
     cardBack.innerHTML = `<div class="completion-wrap"><span class="completion-text">Hai completato il mazzo!</span></div>`;
