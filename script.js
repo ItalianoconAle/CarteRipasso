@@ -1058,4 +1058,25 @@ if ('serviceWorker' in navigator) {
         console.log('Service Worker registered!');
       });
   });
+  function speakItalianOnly() {
+  // Grab the text strictly from the card's front side (Italian)
+  const italianText = document.getElementById('cardFront').innerText;
+
+  if ('speechSynthesis' in window) {
+    // Cancel any previous audio playback
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(italianText);
+    utterance.lang = 'it-IT'; // Ensures Italian voice engine and phonetics
+    utterance.rate = 0.85;    // Slightly slower pace ideal for language learning
+
+    window.speechSynthesis.speak(utterance);
+  }
+}
+
+// Attach event listener to the button
+document.getElementById('speakItalianBtn').addEventListener('click', (e) => {
+  e.stopPropagation(); // Prevents flipping the card when clicking the audio button
+  speakItalianOnly();
+});
 }
