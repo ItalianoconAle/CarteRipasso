@@ -641,21 +641,21 @@ let studyMarkedOnly = false;
 
 
 function speakItalian(text) {
-  if (!text || isMuted) return; // Respect your app's mute setting
+  if (!text || isMuted) return; // Ignores if muted or empty
 
-  // Stop overlapping speech
+  // Cancel any speech currently playing so audio doesn't overlap
   if (synth.speaking) {
     synth.cancel();
   }
 
   const speak = () => {
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'it-IT';
-    utterance.rate = 0.85; // Clear pace for learning
+    utterance.lang = 'it-IT'; // Standard Italian accent
+    utterance.rate = 0.85;    // Clear learning speed
 
-    // Explicitly target Italian voice (fixes issue on Safari/iOS)
+    // Explicitly target Italian voice (fixes silent playback on iOS Safari)
     const voices = synth.getVoices();
-    const italianVoice = voices.find(v => v.lang.startsWith('it'));
+    const italianVoice = voices.find((v) => v.lang.startsWith('it'));
     if (italianVoice) {
       utterance.voice = italianVoice;
     }
@@ -663,15 +663,34 @@ function speakItalian(text) {
     synth.speak(utterance);
   };
 
-  // Handle Chrome's async voice loading
+  // Handle Chrome's asynchronous voice loading
   if (synth.getVoices().length === 0) {
     synth.onvoiceschanged = () => {
       speak();
-      synth.onvoiceschanged = null;
+      synth.onvoiceschanged = null; // Clean up listener
     };
   } else {
     speak();
   }
+}
+const speakerBtn = document.getElementById('speakIcon'); 
+
+if (speakerBtn) {
+  speakerBtn.addEventListener('click', (event) => {
+    // Stops click from flipping the flashcard
+    event.stopPropagation(); 
+
+    // Get current card data directly to ensure clean text
+    const deck = getCurrentDeck();
+    const currentCard = deck[currentIndex];
+
+    if (currentCard && currentCard.question) {
+      speakItalian(currentCard.question);
+    } else {
+      const fallbackText = cardFront.textContent.trim();
+      speakItalian(fallbackText);
+    }
+  });
 }
 
 function getCurrentDeck() {
