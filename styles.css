@@ -491,7 +491,7 @@ font-size: clamp(1.25rem, 8vmin, 5rem);
   .instructions-toggle { display: none; }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 980px) {
   .dashboard { grid-template-columns: 1fr; }
 }
 
