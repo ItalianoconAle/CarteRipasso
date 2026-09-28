@@ -641,31 +641,37 @@ let studyMarkedOnly = false;
 
 
 function speakItalian(text) {
-  if (!text) return;
-  
-  // Cancel any speech currently playing so audio doesn't overlap
+  if (!text || isMuted) return; // Respect your app's mute setting
+
+  // Stop overlapping speech
   if (synth.speaking) {
     synth.cancel();
   }
 
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = 'it-IT'; // Force Italian pronunciation
-  utterance.rate = 0.9;     // Slightly slower pace for clear learning
+  const speak = () => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'it-IT';
+    utterance.rate = 0.85; // Clear pace for learning
 
-  synth.speak(utterance);
-}
-const speakerBtn = document.getElementById('speakIcon'); 
+    // Explicitly target Italian voice (fixes issue on Safari/iOS)
+    const voices = synth.getVoices();
+    const italianVoice = voices.find(v => v.lang.startsWith('it'));
+    if (italianVoice) {
+      utterance.voice = italianVoice;
+    }
 
-if (speakerBtn) {
-  speakerBtn.addEventListener('click', (event) => {
-    // PREVENTS CARD FLIP: Stops click from bubbling up to cardBtn
-    event.stopPropagation(); 
+    synth.speak(utterance);
+  };
 
-    // Grab the text from the front of the card (Italian word)
-    const italianText = cardFront.textContent.trim();
-    
-    speakItalian(italianText);
-  });
+  // Handle Chrome's async voice loading
+  if (synth.getVoices().length === 0) {
+    synth.onvoiceschanged = () => {
+      speak();
+      synth.onvoiceschanged = null;
+    };
+  } else {
+    speak();
+  }
 }
 
 function getCurrentDeck() {
