@@ -886,6 +886,8 @@ function showEndScreen(shouldShow) {
     
     progressLabel.textContent = "Completato!";
   } else {
+    // RE-ENABLE SPEAKER BUTTON when restarting or returning to deck
+    if (speakerBtn) speakerBtn.style.display = 'inline-flex';
     // SWAP CLASSES BACK: Hide the container immediately
     endScreen?.classList.remove('end-screen-revealed');
     endScreen?.classList.add('end-screen-shrouded');
