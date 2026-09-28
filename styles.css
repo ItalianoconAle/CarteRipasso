@@ -283,11 +283,12 @@ h2 {
   font-size: 0.95rem;
 }
 .pronuncia-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 0.5rem 0 1rem 0;
+ display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin: 0.75rem auto !important;
+  text-align: center;
 }
 
 #speakIcon.pronuncia,
@@ -300,10 +301,10 @@ h2 {
   border-radius: 999px;
   border: 1px solid #68A183;
   background: #ffffff;
-  color: #2f5d45;
+  color: #68A183;
   font-family: inherit;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 300;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(11, 23, 16, 0.08);
   transition: transform 120ms ease, background 120ms ease;
