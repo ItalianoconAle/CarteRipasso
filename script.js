@@ -627,6 +627,7 @@ const endScreen = document.getElementById('deckEndContainer');
 const restartBtn = document.getElementById('restartBtn');
 const starBtn = document.getElementById('starBtn');
 const markedOption = document.getElementById('markedOption');
+const synth = window.speechSynthesis;
 
 let isMuted = false;
 let currentDeck = 'unit1';
@@ -637,6 +638,35 @@ let touchStartX = 0;
 let touchStartY = 0;
 let markedCards = []; 
 let studyMarkedOnly = false;
+
+
+function speakItalian(text) {
+  if (!text) return;
+  
+  // Cancel any speech currently playing so audio doesn't overlap
+  if (synth.speaking) {
+    synth.cancel();
+  }
+
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'it-IT'; // Force Italian pronunciation
+  utterance.rate = 0.9;     // Slightly slower pace for clear learning
+
+  synth.speak(utterance);
+}
+const speakerBtn = document.getElementById('speakIcon'); 
+
+if (speakerBtn) {
+  speakerBtn.addEventListener('click', (event) => {
+    // PREVENTS CARD FLIP: Stops click from bubbling up to cardBtn
+    event.stopPropagation(); 
+
+    // Grab the text from the front of the card (Italian word)
+    const italianText = cardFront.textContent.trim();
+    
+    speakItalian(italianText);
+  });
+}
 
 function getCurrentDeck() {
   if (currentDeck === 'marked') {
