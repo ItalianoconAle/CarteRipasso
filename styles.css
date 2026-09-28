@@ -282,7 +282,7 @@ h2 {
   color:#68A183;
   font-size: 0.95rem;
 }
-.pronuncia {
+#speakIcon.pronuncia {
   display: inline-flex;
   align-items: center;
   justify-content: center; 
