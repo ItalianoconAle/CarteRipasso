@@ -282,17 +282,42 @@ h2 {
   color:#68A183;
   font-size: 0.95rem;
 }
-#speakIcon.pronuncia {
+.pronuncia-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0.5rem 0 1rem 0;
+}
+
+#speakIcon.pronuncia,
+.pronuncia {
   display: inline-flex;
   align-items: center;
-  justify-content: center; 
-  padding: 0.9rem 1rem;
-  margin-left: 0.5em;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 999px;
   border: 1px solid #68A183;
   background: #ffffff;
-  color:#68A183;
+  color: #2f5d45;
+  font-family: inherit;
   font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(11, 23, 16, 0.08);
+  transition: transform 120ms ease, background 120ms ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+#speakIcon.pronuncia:hover {
+  background: #f0f8f4;
+  transform: translateY(-1px);
+}
+
+#speakIcon.pronuncia:active {
+  transform: translateY(0);
 }
 
 .ghost-btn,
