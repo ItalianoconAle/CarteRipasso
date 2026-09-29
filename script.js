@@ -287,7 +287,7 @@ const decks = {
     { question: 'in orario', answer: 'on time' },
     { question: 'fino a', answer: 'until' },
     { question: 'ogni tanto', answer: 'every once in awhile' },
-    { question: 'alla settimana', answer: 'per week' },
+    { question: 'a/alla settimana', answer: 'per week' },
     { question: 'a quanto pare', answer: 'it appears that; apparently' },
     { question: 'Andrò a fare la spesa.', answer: 'I will go to do the shopping.' },
     { question: 'Comprerai delle pere', answer: 'You will buy some pears.' },
