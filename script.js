@@ -1,7 +1,7 @@
 const decks = {
   unit1: [
     { question: 'l\'anno', answer: 'year' },
-    { question: 'l\'addetto', answer: 'worker; clerk' },
+    { question: 'l\'addetto', answer: 'agent; representative' },
     { question: 'davvero', answer: 'really; truly' },
     { question: 'anche', answer: 'also; too' },
     { question: 'quale', answer: 'which' },
