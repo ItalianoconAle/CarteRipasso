@@ -455,7 +455,7 @@ const decks = {
     { question: 'il condominio', answer: 'condo; apartment building' },
     { question: 'il cortile', answer: 'courtyard' },
     { question: 'il piano', answer: 'floor (of a building)' },
-    { question: 'l\'ageniza immobiliare', answer: 'real estate agency' },
+    { question: 'l\'agenzia immobiliare', answer: 'real estate agency' },
     { question: 'l\'agente immobiliare', answer: 'real estate agent' },
     { question: 'l\'annuncio', answer: 'listing; announcement; ad' },
     { question: 'la comodità', answer: 'comfort; convenience' },
