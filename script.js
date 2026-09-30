@@ -1112,19 +1112,11 @@ renderCard();
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./service-worker.js', { scope: './' })
+    navigator.serviceWorker.register('./service-worker.js')
       .then(reg => {
-        console.log('Service Worker registered successfully!', reg.scope);
-
-        // Safe update check: checks when the user returns to the tab without throwing uncaught 404s
-        document.addEventListener('visibilitychange', () => {
-          if (document.visibilityState === 'visible') {
-            reg.update().catch(err => console.log('Background update check failed:', err));
-          }
-        });
-      })
-      .catch(err => {
-        console.error('Service Worker registration failed:', err);
+        // Check for updates automatically in the background
+        reg.update();
+        console.log('Service Worker registered!');
       });
   });
-}
+} 
