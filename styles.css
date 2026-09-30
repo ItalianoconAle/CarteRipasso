@@ -512,8 +512,8 @@ font-size: clamp(1.25rem, 8vmin, 5rem);
   .controls { display: grid; grid-template-columns: 1fr 1fr; }
   .flashcard { min-height: 320px; padding: 1rem 0.9rem; border-radius: 22px; justify-content: center; max-width: 100%; }
   .card-text {
-    font-size: clamp(1.5rem, 12vmin, 5rem);
-    line-height: clamp(1.5rem, 12vmin, 5rem);
+    font-size: clamp(1.25rem, 11vmin, 5rem);
+    line-height: clamp(1.25rem, 11vmin, 5rem);
     font-weight: 800;
   }
   .hero-right {
