@@ -919,6 +919,7 @@ function switchDeck(newDeck) {
   currentIndex = 0;
   if (deckSelect) deckSelect.value = newDeck;
   renderCard();
+  showEndScreen(false);
 }
 
 function switchMode(newMode) {
