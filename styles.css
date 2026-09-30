@@ -471,7 +471,7 @@ h2 {
 }
 
 .card-text,
-.card-back { font-size: clamp(1.25rem, 10vmin, 8rem); line-height: 1.25; }
+.card-back { font-size: clamp(1.25rem, 10vmin, 7rem); line-height: 1.25; }
 
 .card-back { display: none;
 font-weight: 500;
