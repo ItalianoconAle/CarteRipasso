@@ -439,7 +439,7 @@ h2 {
   align-items: center;
   text-align: center;
   gap: 0.5rem;
-  padding: 1.5rem 1rem 1rem 1rem; 
+  padding: 0.5rem 1rem 1rem 1rem; 
   border: none;
   background: #3a7254;
   color: #eff6ff;
@@ -510,7 +510,7 @@ font-size: clamp(1.25rem, 8vmin, 5rem);
   .card-header, .controls { gap: 0.5rem; }
   .controls { display: grid; grid-template-columns: 1fr 1fr; }
   .flashcard { min-height: 320px; 
-              padding: 1.5rem 0.9rem 1rem 0.9rem; 
+              padding: 0.5rem 0.9rem 1rem 0.9rem; 
               border-radius: 22px; 
               justify-content: center; max-width: 100%; }
   .card-text {
