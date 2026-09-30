@@ -460,6 +460,13 @@ h2 {
   letter-spacing: 0.22em;
   margin-bottom:   2rem;
 }
+.flashcard-tag-2 {
+  font-size: 0.9rem;
+  color: #68A183;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  margin-bottom:   0rem;
+}
 
 .card-text,
 .card-back { font-size: clamp(1.25rem, 10vmin, 8rem); line-height: 1.25; }
