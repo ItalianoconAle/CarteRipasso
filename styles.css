@@ -448,6 +448,9 @@ h2 {
   cursor: pointer;
   perspective: 1200px;
   position: relative;
+}
+
+.flashcard > * {
   transform: translateY(-1.5rem);
 }
 
