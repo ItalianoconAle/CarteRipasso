@@ -1,5 +1,11 @@
-const CACHE_NAME = 'flashcards-v2';
-const APP_SHELL = ['./', './index.html', './styles.css', './script.js', './manifest.json'];
+const CACHE_NAME = 'flashcards-v4';
+const APP_SHELL = [
+  './',
+  './index.html',
+  './styles.css',
+  './script.js',
+  './manifest.json'
+];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)));
@@ -17,10 +23,17 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
   event.respondWith(
-    caches.match(event.request).then((cached) => cached || fetch(event.request).then((response) => {
-      const copy = response.clone();
-      caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
-      return response;
-    }).catch(() => caches.match('/index.html')))
+    caches.match(event.request).then((cached) => {
+      if (cached) return cached;
+
+      return fetch(event.request).then((response) => {
+        // Only cache full 200 OK responses (ignores 206 partial media requests)
+        if (response && response.status === 200 && response.type === 'basic') {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+        }
+        return response;
+      }).catch(() => caches.match('./index.html'));
+    })
   );
 });
