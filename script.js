@@ -747,6 +747,8 @@ const options = new Set([correctAnswer]);
 }
 
 function renderCard() {
+  if (endScreen) endScreen.classList.remove('end-screen-revealed'); // 👈 ADD THIS LINE
+  if (endScreen) endScreen.classList.add('end-screen-shrouded');
   const deck = getCurrentDeck();
   const card = deck[currentIndex] || deck[0];
 
@@ -919,7 +921,6 @@ function switchDeck(newDeck) {
   currentIndex = 0;
   if (deckSelect) deckSelect.value = newDeck;
   renderCard();
-  showEndScreen(false);
 }
 
 function switchMode(newMode) {
