@@ -777,19 +777,36 @@ if (mode === 'quiz') {
     quizPanel.classList.remove('hidden');
     quizOptions.innerHTML = '';
 
-    // The quiz loop belongs INSIDE the mode check block
+    // Track wrong attempts for the current card
+    let wrongAttempts = 0;
+
+    // Helper to highlight the correct answer option
+    const highlightCorrectOption = () => {
+      const optionButtons = quizOptions.querySelectorAll('.quiz-option');
+      optionButtons.forEach((btn) => {
+        if (btn.textContent === card.answer) {
+          btn.classList.add('correct');
+        }
+        btn.disabled = true; // Disable further interactions
+      });
+    };
+
     buildQuizOptions(deck, card.answer).forEach((answer) => {
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'quiz-option';
       button.textContent = answer;
+
       button.addEventListener('click', () => {
         const isCorrect = answer === card.answer;
-        
+
         if (isCorrect) {
-          // --- UPDATED: ADD CORRECT STYLING & FEEDBACK ---
           button.classList.add('correct');
           quizFeedback.textContent = 'Corretto! Bravo.';
+
+          // Disable all buttons once correct answer is found
+          const optionButtons = quizOptions.querySelectorAll('.quiz-option');
+          optionButtons.forEach((btn) => (btn.disabled = true));
 
           if (!isMuted) {
             try {
@@ -802,21 +819,19 @@ if (mode === 'quiz') {
             }
           }
 
-          // --- NEW: AUTO-ADVANCE BEHAVIOR WITH 1s DELAY ---
           setTimeout(() => {
             if (currentIndex < getCurrentDeck().length - 1) {
-              nextCard(); 
+              nextCard();
             } else {
               quizFeedback.textContent = 'Ottimo lavoro! Hai completato questo set!';
             }
           }, 1000);
 
         } else {
-          // --- UPDATED: ADD WRONG STYLING & FEEDBACK ---
+          wrongAttempts++;
           button.classList.add('wrong');
-          quizFeedback.textContent = `Non proprio. Prova di nuovo!`;
+          button.disabled = true; // Disable the incorrect option
 
-          // --- WAV AUDIO PLAYBACK WITH MUTE CHECK ---
           if (!isMuted) {
             try {
               wrongSound.currentTime = 0;
@@ -827,18 +842,30 @@ if (mode === 'quiz') {
               console.error("Audio error:", audioError);
             }
           }
-          // -----------------------------------------------------
+
+          if (wrongAttempts >= 2) {
+            // Reveal correct answer after 2 missed attempts
+            quizFeedback.textContent = `La risposta corretta è: ${card.answer}`;
+            highlightCorrectOption();
+
+            // Auto-advance after a slightly longer delay (2s) so the user can see the correct answer
+            setTimeout(() => {
+              if (currentIndex < getCurrentDeck().length - 1) {
+                nextCard();
+              } else {
+                quizFeedback.textContent = 'Ottimo lavoro! Hai completato questo set!';
+              }
+            }, 2000);
+
+          } else {
+            quizFeedback.textContent = 'Non proprio. Prova ancora un\'ultima volta!';
+          }
         }
       });
+
       quizOptions.appendChild(button);
     });
-  } else {
-    // If we are NOT in quiz mode, make sure the regular flashcard stays visible
-    cardBtn.classList.remove('hidden');
-    quizPanel.classList.add('hidden');
   }
-  
-}
 
 function toggleCard() {
   isFlipped = !isFlipped;
