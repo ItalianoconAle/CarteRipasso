@@ -450,10 +450,6 @@ h2 {
   position: relative;
 }
 
-.flashcard > * {
-  transform: translateY(-1.5rem);
-}
-
 .flashcard.is-flipped { transform: rotateY(180deg); }
 
 .flashcard-tag {
