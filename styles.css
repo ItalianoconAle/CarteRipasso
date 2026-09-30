@@ -435,11 +435,11 @@ h2 {
   min-height: clamp(300px, 45vh, 350px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: top;
+  justify-content: flex-start;
+  align-items:  center;
   text-align: center;
   gap: 0.5rem;
-  padding: 0rem, 1rem, 1rem, 1rem;
+  padding: 0.5rem, 1rem, 1rem, 1rem;
   border: none;
   background: #3a7254;
   color: #eff6ff;
