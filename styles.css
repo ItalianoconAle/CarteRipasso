@@ -439,7 +439,7 @@ h2 {
   align-items:  center;
   text-align: center;
   gap: 0.5rem;
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 2rem 1rem 1rem 1rem;
   border: none;
   background: #3a7254;
   color: #eff6ff;
@@ -468,6 +468,7 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 0.22em;
   margin-bottom:   0;
+  margin-top: 1rem;
 }
 
 .card-text,
@@ -510,7 +511,7 @@ font-size: clamp(1.25rem, 8vmin, 5rem);
   .quiz-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .card-header, .controls { gap: 0.5rem; }
   .controls { display: grid; grid-template-columns: 1fr 1fr; }
-  .flashcard { min-height: 320px; padding: 1rem 0.9rem; border-radius: 22px; justify-content: flex-start; max-width: 100%; }
+  .flashcard { min-height: 320px; padding: 1rem 0.9rem; border-radius: 22px; justify-content: center; max-width: 100%; }
   .card-text {
     font-size: clamp(1.25rem, 10vmin, 5rem);
     line-height: clamp(1.25rem, 10vmin, 5rem);
