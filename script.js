@@ -463,7 +463,7 @@ const decks = {
     { question: 'in affitto', answer: 'rented; for rent' },
     { question: 'prendere in affitto', answer: 'to rent' },
     { question: 'Ci penso io.', answer: 'I\'ll handle it' },
-    { question: 'prendere un decisione', answer: 'to make a decision' },
+    { question: 'prendere una decisione', answer: 'to make a decision' },
     { question: 'farò del tutto...', answer: 'I\'ll do everything I can...' },
     { question: 'dispone di tutto', answer: 'it has/offers everything' },
     { question: 'spazioso', answer: 'spatious' },
@@ -472,6 +472,9 @@ const decks = {
     { question: 'il proprietario', answer: 'owner; landlord' },
     { question: 'la disponibilità', answer: 'availability' },
     { question: 'Non ce la faccio più', answer: 'I can\'t take it anymore.' },
+    { question: 'Cosa ne pensi?', answer: 'What do you think (of it/them)?' },
+    { question: 'Ne vale la pena', answer: 'It\'s worth it.' },
+    { question: 'cioè', answer: 'meaning...; in other words...' },
     { question: 'Entri pure.', answer: 'Please (go ahead and) come in. (fml.)' },
   ],
   verbs: [
