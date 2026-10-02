@@ -487,7 +487,7 @@ const decks = {
     { question: 'la vista', answer: 'sight; view' },
     { question: 'i sentimenti', answer: 'feelings; emotions' },
     { question: 'la felicità', answer: 'happiness' },
-    { question: 'la tristezza', answer: 'apartment building; palace' },
+    { question: 'la tristezza', answer: 'sadness' },
     { question: 'lo stress', answer: 'stress' },
     { question: 'l\'ansia', answer: 'anxiety' },
     { question: 'la noia', answer: 'boredom' },
