@@ -1,10 +1,12 @@
-const CACHE_NAME = 'flashcards-v12';
+const CACHE_NAME = 'flashcards-v13';
 const APP_SHELL = [
   './',
   './index.html',
   './styles.css',
   './script.js',
-  './manifest.json'
+  './manifest.json',
+  './images/app_ico6.png',
+  './images/app_splash3.png'
 ];
 
 self.addEventListener('install', (event) => {
