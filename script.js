@@ -585,7 +585,7 @@ const decks = {
     { question: 'mettersi', answer: 'to put on' },
     { question: 'togliersi', answer: 'to take off' },
     { question: 'sentirsi', answer: 'to feel' },
-    { question: 'innamorarsi', answer: 'to fall in love },
+    { question: 'innamorarsi', answer: 'to fall in love'},
     { question: 'vergognarsi', answer: 'to be ashamed' },
     { question: 'fidarsi', answer: 'to trust' },
     
