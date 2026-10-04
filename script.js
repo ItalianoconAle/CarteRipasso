@@ -16,6 +16,7 @@ const decks = {
     { question: 'loro', answer: 'they' },
     { question: 'Lei', answer: 'you (formal)' },
     { question: 'Mi chiamo...', answer: 'my name is' },
+    { question: 'abito', answer: 'I reside' },
     { question: 'Come ti chiami?', answer: 'what is your name?' },
     { question: 'Di dove sei?', answer: 'where are you from?' },
     { question: 'Sono di Roma.', answer: 'I am from Rome.' },
@@ -38,8 +39,15 @@ const decks = {
     { question: 'come stai?', answer: 'how are you? (inf.)' },
     { question: 'l\'', answer: 'eye' },
     { question: 'sto bene', answer: 'I’m well' },
-    { question: 'lo stivalo', answer: 'boot' },
+    { question: 'lo stivale', answer: 'boot' },
     { question: 'il sole', answer: 'sun' },
+    { question: 'tedesco', answer: 'German' },
+    { question: 'greco', answer: 'Greek' },
+    { question: 'italiano', answer: 'Italian' },  
+    { question: 'spagnolo', answer: 'Spanish' },
+    { question: 'francese', answer: 'French' },
+    { question: 'portoghese', answer: 'Portuguese' },
+    { question: 'americano', answer: 'American' },
   ],
   unit2: [
     { question: 'scusa', answer: 'excuse me; sorry (inf.)' },
@@ -51,14 +59,15 @@ const decks = {
     { question: 'le scarpe', answer: 'shoes' },
     { question: 'la camicia', answer: 'shirt' },
     { question: 'la maglietta', answer: 't-shirt' },
-    { question: 'il vestito', answer: 'dress' },
+    { question: 'il vestito', answer: 'dress; suit' },
+    { question: 'i vestiti', answer: 'dresses; suits; clothes' },
     { question: 'il tacco', answer: 'heel' },
     { question: 'la mela', answer: 'apple' },
     { question: 'la pera', answer: 'pear' },
     { question: 'la fragola', answer: 'strawberry' },
-    { question: 'paio', answer: 'pair' },
+    { question: 'il paio', answer: 'pair' },
     { question: 'il negozio', answer: 'shop' },
-    { question: 'l\'abbigliamento', answer: 'clothing' },
+    { question: 'l\'abbigliamento', answer: 'apparel; clothing' },
     { question: 'il saldo', answer: 'sale' },
     { question: 'al momento', answer: 'at the moment' },
     { question: 'grazie a Lei', answer: 'thank you (fml.)' },
@@ -203,7 +212,7 @@ const decks = {
     { question: 'la via', answer: 'street' },
     { question: 'il marciapiede', answer: 'sidewalk' },
     { question: 'il semaforo', answer: 'traffic light' },
-    { question: 'la stazione ferroviaria', answer: 'train station' },
+    { question: 'la stazione (ferroviaria)', answer: 'train station' },
     { question: 'l\'ufficio postale', answer: 'post office' },
     { question: 'la biblioteca', answer: 'library' },
     { question: 'il museo', answer: 'museum' },
@@ -219,6 +228,7 @@ const decks = {
     { question: 'prima', answer: 'before' },
     { question: 'poi', answer: 'then; after that' },
     { question: 'dopo', answer: 'after' },
+    { question: 'dritto', answer: 'straight' },
     { question: 'a destra', answer: 'on the right' },
     { question: 'a sinistra', answer: 'on the left' },
     { question: 'accidenti!', answer: 'damn it!' },
@@ -480,6 +490,8 @@ const decks = {
     { question: 'Ne vale la pena', answer: 'It\'s worth it' },
     { question: 'cioè', answer: 'meaning...; in other words...' },
     { question: 'Entri pure', answer: 'Please (go ahead and) come in (fml.)' },
+    { question: 'Stia tranquillo/a', answer: 'don\'t worry (fml.)' },
+    { question: 'Stia calmo/a', answer: 'calm dowm (fml.)' },
   ],
                  unit11: [
     { question: 'il gusto', answer: 'taste; flavour' },
@@ -518,7 +530,7 @@ const decks = {
     { question: 'entusiasta', answer: 'enthusiastic; eager' },
     { question: 'cosicché', answer: 'therefore' },
   ],
-  verbs: [
+  verbs1: [
 
     { question: 'essere', answer: 'to be' },
     { question: 'avere', answer: 'to have' },
@@ -556,7 +568,6 @@ const decks = {
     { question: 'rimanere', answer: 'to stay' },
     { question: 'tenere', answer: 'to hold; to keep' },
     { question: 'riuscire', answer: 'to succeed; to manage to' },
-    { question: 'cucinare', answer: 'to cook' },
     { question: 'spegnere', answer: 'to turn off' },
     { question: 'accendere', answer: 'to turn on' },
     { question: 'conoscere', answer: 'to know (people or places)' },
@@ -575,13 +586,25 @@ const decks = {
     { question: 'proseguire', answer: 'to continue' },
     { question: 'gestire', answer: 'to manage; to handle' },
     { question: 'iniziare', answer: 'to begin' },
-    { question: 'aprire', answer: 'to open' },
-    { question: 'chiudere', answer: 'to close' },
     { question: 'restare', answer: 'to stay' },
     { question: 'assumere', answer: 'to take on; to hire' },
     { question: 'intendere', answer: 'to mean; to intend' },
     { question: 'noleggiare', answer: 'to rent; to hire' },
-    { question: 'giocare', answer: 'to play' },
+    { question: 'giocare', answer: 'to play (games/sports)' },
+    { question: 'divertirsi', answer: 'to have fun' },
+    { question: 'sedersi', answer: 'to sit down' },
+    { question: 'addormentarsi', answer: 'to fall asleep' },
+    { question: 'mettersi', answer: 'to put on' },
+    { question: 'togliersi', answer: 'to take off' },
+    { question: 'sentirsi', answer: 'to feel' },
+    { question: 'innamorarsi', answer: 'to fall in love },
+    { question: 'vergognarsi', answer: 'to be ashamed' },
+    { question: 'fidarsi', answer: 'to trust' },
+    
+    ],
+
+    verbs2: [
+     { question: 'frequentare', answer: 'to attend (school); to frequent' },
     { question: 'allenarsi', answer: 'to train; to exercise' },
     { question: 'suonare', answer: 'to play (an instrument)' },
     { question: 'praticare', answer: 'to practice' },
@@ -653,7 +676,8 @@ const deckLabelMap = {
   unit9: 'Unità 9',
   unit10: 'Unità 10',
   unit11: 'Unità 11',
-  verbs: 'Verbi',
+  verbs1: 'Verbi (1-6)',
+  verbs2: 'Verbi (7-11)',
 };
 
 const cardBtn = document.getElementById('cardBtn');
@@ -751,7 +775,7 @@ if (speakerBtn) {
 function getCurrentDeck() {
   if (currentDeck === 'marked') {
     // Combine all decks and filter down to only the ones the user starred
-    const allCards = [...decks.unit1, ...decks.unit2, ...decks.unit3, ...decks.unit4,...decks.unit5,...decks.unit6,...decks.unit7,...decks.unit8,...decks.unit9,...decks.unit10, ...decks.unit11, ...decks.verbs];
+    const allCards = [...decks.unit1, ...decks.unit2, ...decks.unit3, ...decks.unit4,...decks.unit5,...decks.unit6,...decks.unit7,...decks.unit8,...decks.unit9,...decks.unit10, ...decks.unit11, ...decks.verbs1, ...decks.verbs2];
     return allCards.filter(card => markedCards.includes(card.question));
   }
   return decks[currentDeck] || decks.unit1;
