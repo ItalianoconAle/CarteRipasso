@@ -250,7 +250,7 @@ const decks = {
     { question: 'fa', answer: 'ago' },
     { question: 'sono andato/a', answer: 'I went' },
     { question: 'Hai comprato un libro', answer: 'You bought a book' },
-    { question: 'Abbiamo dormito bene,', answer: 'We slept well.' },
+    { question: 'Abbiamo dormito bene.', answer: 'We slept well.' },
     { question: 'Sono partiti ieri sera.', answer: 'They left last night.' },
     { question: 'Luigi ha letto un bel libro.', answer: 'Luigi read a good book.' },
   ],
@@ -482,6 +482,7 @@ const decks = {
     { question: 'Entri pure', answer: 'Please (go ahead and) come in (fml.)' },
     { question: 'Stia tranquillo/a', answer: 'don\'t worry (fml.)' },
     { question: 'Stia calmo/a', answer: 'calm dowm (fml.)' },
+    { question: 'Penso che Gino sia bella.', answer: 'I think she/it is beautiful.' },
   ],
                  unit11: [
     { question: 'il gusto', answer: 'taste; flavour' },
